@@ -6,6 +6,7 @@ plugins {
 android {
     namespace = "com.example.proguard"
     compileSdk = 33
+    buildToolsVersion = "34.0.0-rc4"
 
     defaultConfig {
         applicationId = "com.example.proguard"

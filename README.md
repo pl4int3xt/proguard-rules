@@ -22,7 +22,7 @@ android {
 }
 ```
 kotlin
-```
+```kotlin
 android {
     buildTypes {
         release {

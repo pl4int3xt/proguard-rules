@@ -1,6 +1,7 @@
 package com.example.proguard.presentation.main.components
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -32,7 +33,10 @@ fun MainScreen(state: MutableState<MainViewState>) {
             }
 
             if (state.value.message.isNotEmpty()){
-                Text(text = state.value.message)
+                Text(
+                    modifier = Modifier.align(Alignment.Center),
+                    text = state.value.message
+                )
             }
 
             if (state.value.posts.isNotEmpty()){

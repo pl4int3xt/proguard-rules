@@ -9,14 +9,28 @@ ProGuard can also obfuscate your code to make it more difficult to reverse-engin
 
 To enable ProGuard in your Android project, you need to add the following lines to your `build.gradle` file:
 
+groovy
 ```groovy
 android {
   buildTypes {
     release {
+      shrinkResources true
       minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
   }
+}
+```
+kotlin
+```
+android {
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
 }
 ```
 

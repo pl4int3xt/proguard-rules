@@ -34,3 +34,41 @@
 -dontwarn org.conscrypt.**
 -dontwarn org.bouncycastle.**
 -dontwarn org.openjsse.**
+
+# Hilt-related classes
+-keep class androidx.hilt.** { *; }
+-keep class dagger.hilt.** { *; }
+-keep class javax.inject.** { *; }
+
+# Hilt annotation classes
+-keepclasseswithmembers class * {
+    @dagger.hilt.* <methods>;
+}
+
+# Kotlin coroutines
+-keep class kotlin.coroutines.Continuation { *; }
+-keep class kotlin.coroutines.CoroutineContext { *; }
+-keep class kotlinx.coroutines.CoroutineExceptionHandler { *; }
+-keep class kotlinx.coroutines.Dispatchers { *; }
+-keep class kotlinx.coroutines.Job { *; }
+-keep class kotlinx.coroutines.flow.** { *; }
+
+# Keep ViewModel classes and their methods and fields
+-keep class * extends androidx.lifecycle.ViewModel {
+    <init>();
+}
+
+# Keep UseCase classes and their methods
+-keep class com.example.proguard.domain.use_case.** {
+    <init>();
+    public *;
+}
+
+# Keep Domain folder
+-keep class com.example.proguard.domain.** {*;}
+
+# Keep Data folder
+-keep class com.example.proguard.data.** {*;}
+
+# Keep Constants folder
+-keep class com.example.proguard.common.** {*;}

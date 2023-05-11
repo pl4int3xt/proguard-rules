@@ -3,6 +3,7 @@ package com.example.proguard.presentation.main.components
 import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -17,7 +18,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.proguard.presentation.main.MainViewState
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -47,8 +50,14 @@ fun MainScreen(state: MutableState<MainViewState>) {
                                 .fillMaxWidth()
                                 .padding(16.dp)
                         ) {
-                            Text(text = post.title)
-                            Text(text = post.body)
+                            Column(modifier = Modifier.padding(16.dp)) {
+                                Text(
+                                    text = post.title,
+                                    fontSize = 25.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                                Text(text = post.body)
+                            }
                         }
                     }
                 }

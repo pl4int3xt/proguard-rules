@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.proguard.common.Resource
 import com.example.proguard.domain.use_case.GetAllPostsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
+@HiltViewModel
 class MainViewModel @Inject constructor(
     private val getAllPostsUseCase: GetAllPostsUseCase
 ): ViewModel() {
@@ -25,7 +27,7 @@ class MainViewModel @Inject constructor(
                     _state.value = MainViewState(isLoading = true)
                 }
                 is Resource.Success -> {
-                    _state.value = MainViewState(posts = result.data)
+                    _state.value = MainViewState(posts = result.data ?: emptyList())
                 }
             }
         }.launchIn(viewModelScope)
